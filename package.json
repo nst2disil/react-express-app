@@ -1,0 +1,16 @@
+{
+  "name": "react-express-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "express": "^4.19.2"
+  }
+}
