@@ -1,5 +1,5 @@
 # frontend
-FROM node:18 AS frontend
+FROM balenalib/i386-ubuntu-node:latest AS frontend
 
 WORKDIR /app/frontend
 
@@ -10,7 +10,7 @@ COPY frontend/ .
 RUN npm run build
 
 # backend
-FROM node:18
+FROM balenalib/i386-ubuntu-node:latest
 
 WORKDIR /app
 
