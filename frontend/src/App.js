@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   const headers = getHeaders(data);
-  const currentPageItems = countPageItemsID(data, currentPage, itemsPerPage);
+  const currentPageItems = getPageItemsID(data, currentPage, itemsPerPage);
   const visiblePageNumbers = getVisibblePageNumbers(data, itemsPerPage, currentPage);
 
   return (
@@ -71,7 +71,7 @@ function getHeaders(data) {
 }
 
 
-function countPageItemsID(data, currentPage, itemsPerPage) {
+function getPageItemsID(data, currentPage, itemsPerPage) {
   const LastItemID = currentPage * itemsPerPage;
   const FirstItemID = LastItemID - itemsPerPage;
   const currentPageItems = data.slice(FirstItemID, LastItemID);

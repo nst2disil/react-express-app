@@ -14,20 +14,20 @@ app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.get('/table', (req, res) => {
     const results = [];
-    
+
     fs.createReadStream(__dirname + '/data.csv')
-      .pipe(csv())
-      .on('data', (data) => {
-        const keys = Object.keys(data).slice(0, COLUMNS_NUM);
-        const filteredData = keys.reduce((obj, key) => {
-            obj[key] = data[key];
-            return obj;
-        }, {});
-        results.push(filteredData);
-    })
-      .on('end', () => {
-          res.json(results);  
-      });
+        .pipe(csv())
+        .on('data', (data) => {
+            const keys = Object.keys(data).slice(0, COLUMNS_NUM);
+            const filteredData = keys.reduce((obj, key) => {
+                obj[key] = data[key];
+                return obj;
+            }, {});
+            results.push(filteredData);
+        })
+        .on('end', () => {
+            res.json(results);
+        });
 });
 
 
